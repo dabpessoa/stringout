@@ -3,11 +3,18 @@ package me.dabpessoa.stringout;
 import java.util.List;
 import java.util.Map;
 
+import me.dabpessoa.stringout.enums.StringOutType;
+
+/**
+ * 
+ * @author diego.pessoa
+ * @since 28/06/2016
+ *
+ */
 public interface StringOut {
 
 	public static final String FILE_NAME_DEFAULT = "stringout.json";
 	public static final String CHARACTER_ENCODING_DEFAULT = "UTF-8";
-	public static final String NAMED_PARAM_REGEX = ":\\w+";
 	
 	/**
 	 * 

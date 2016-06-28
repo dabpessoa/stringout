@@ -1,4 +1,4 @@
-package me.dabpessoa.stringout;
+package me.dabpessoa.stringout.enums;
 
 public enum StringOutType {
 

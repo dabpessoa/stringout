@@ -1,5 +1,7 @@
 package me.dabpessoa.stringout;
 
+import me.dabpessoa.stringout.enums.StringOutType;
+
 public class StringOutManager {
 
 	private static StringOut instance;

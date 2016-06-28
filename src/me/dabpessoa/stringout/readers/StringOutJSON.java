@@ -1,20 +1,21 @@
-package me.dabpessoa.stringout;
+package me.dabpessoa.stringout.readers;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
+import me.dabpessoa.stringout.StringOut;
+import me.dabpessoa.stringout.entity.JSONEntity;
+import me.dabpessoa.stringout.enums.ParamReplacementType;
+import me.dabpessoa.stringout.enums.StringOutType;
+import me.dabpessoa.stringout.util.RegexUtils;
 
 public class StringOutJSON implements StringOut {
 
@@ -25,8 +26,11 @@ public class StringOutJSON implements StringOut {
         List<String> valueParams = findParamsFromValue(value);
         
         for (String valueParam : valueParams) {
+        	valueParam = valueParam.substring(1);
         	Object replacement = replacements.get(valueParam);
-			value = value.replaceAll(":"+valueParam, replacement.toString());
+        	if(replacement != null) {
+        		value = value.replaceAll(":"+valueParam, replacement.toString());
+        	}
 		}
         
         return value;
@@ -51,18 +55,7 @@ public class StringOutJSON implements StringOut {
 	}
 	
 	private static List<String> findParamsFromValue(String value) {
-		Pattern pattern = Pattern.compile(NAMED_PARAM_REGEX);  
-        Matcher matcher = pattern.matcher(value);  
-        
-        int count = 0;
-        Set<String> valueParams = new HashSet<String>();
-        while (matcher.find()) {
-        	String valueParam = matcher.group(count++);
-        	valueParam = valueParam.substring(1);
-        	valueParams.add(valueParam);
-        }
-        
-        return new ArrayList<String>(valueParams); 
+		return RegexUtils.findMatches(ParamReplacementType.NAMED.getRegex(), value);
 	}
 	
 	private static JSONEntity findJSONEntityById(String id) {
