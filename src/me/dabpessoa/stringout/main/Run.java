@@ -12,12 +12,22 @@ public class Run {
 	public static void main(String[] args) throws IOException {
 		
 		Map<String, Object> replacements = new HashMap<String, Object>();
-		replacements.put("replace", "minhaPalavra");
+		replacements.put("replace", "gaiata");
 		
 		String value = StringOutManager.getInstance(StringOutType.JSON).find("example", replacements);
 		
-		System.out.println("String encontrada e tratada: "+value);
+		System.out.println(value);
 		
+	}
+	
+	public void teste() {
+//		<| type='test' expression='replace != null' |
+//	    		:replace
+//	    	|>
+//	    	
+//	    	<| type='test' expression='replace == null' |
+//	    		Dolly
+//	    	|>
 	}
 	
 }
