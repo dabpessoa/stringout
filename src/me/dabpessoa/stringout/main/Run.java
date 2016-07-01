@@ -21,13 +21,13 @@ public class Run {
 	}
 	
 	public void teste() {
-//		<| type='test' expression='replace != null' |
-//	    		:replace
-//	    	|>
+//		<| :replace != null |
+//    		:replace
+//    	|>
 //	    	
-//	    	<| type='test' expression='replace == null' |
-//	    		Dolly
-//	    	|>
+//    	<| :replace == null |
+//    		Dolly
+//    	|>
 	}
 	
 }
