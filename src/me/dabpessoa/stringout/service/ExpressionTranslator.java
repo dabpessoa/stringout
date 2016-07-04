@@ -12,7 +12,7 @@ public class ExpressionTranslator {
 
 	private static final String EXPRESSION_REGEX = "(?s)(<\\|)((.*?))(\\|)(.*?)(\\|>)";
 	
-	public String processString(String string) { 
+	public String processString(String string) {
 		
 		List<String> matches = RegexUtils.findMatches(EXPRESSION_REGEX, string);
 		
