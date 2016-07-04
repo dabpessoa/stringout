@@ -1,10 +1,8 @@
 package me.dabpessoa.stringout.main;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.regex.MatchResult;
 
-import me.dabpessoa.stringout.util.RegexUtils;
+import me.dabpessoa.stringout.service.ExpressionTranslator;
 
 public class Run {
 
@@ -22,38 +20,14 @@ public class Run {
 	
 	public void teste() {
 		
-		String regex = "(?s)(<\\|)((.*?))(\\|)(.*?)(\\|>)";
-		String teste = "era uma vez  <| texto1 | texto2 |>  final do teste <| texto1 | texto2 |> djaklfjdlaje";
-		List<String> matches = RegexUtils.findMatches(regex, teste);
+		ExpressionTranslator et = new ExpressionTranslator();
 		
-		for (String match : matches) {
-			System.out.println("=> "+match);
-		}
+		String string = "era uma vez  <| texto1 | value1 |>  final do teste <| texto1 | value2 |> djaklfjdlaje";
 		
-		String[] processResults = proccessMatches(matches);
+		String newString = et.processString(string);
 		
+		System.out.println(newString);
 		
-		
-//		String newString = RegexUtils.removeMatches(regex, teste);
-		String newString = RegexUtils.replaceMatches(regex, teste, "foi1", "foi2");
-		System.out.println("(*) "+newString);
-				
-		
-//		(?s)(<\|)((.*?))(\|)(.*?)(\|>)
-		
-//		<| :replace != null |
-//    		:replace
-//    	|>
-//	    	
-//    	<| :replace == null |
-//    		Dolly
-//    	|>
-	}
-	
-	public String[] proccessMatches(List<String> matches) {
-		
-		
-		return null;
 	}
 	
 }
