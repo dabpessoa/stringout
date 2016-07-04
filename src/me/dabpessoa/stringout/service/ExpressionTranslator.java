@@ -3,13 +3,16 @@ package me.dabpessoa.stringout.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+
 import me.dabpessoa.stringout.util.RegexUtils;
 
 public class ExpressionTranslator {
 
 	private static final String EXPRESSION_REGEX = "(?s)(<\\|)((.*?))(\\|)(.*?)(\\|>)";
 	
-	public String processString(String string) {
+	public String processString(String string) { 
 		
 		List<String> matches = RegexUtils.findMatches(EXPRESSION_REGEX, string);
 		
@@ -35,6 +38,17 @@ public class ExpressionTranslator {
 		}
 		
 		return results.toArray(new String[results.size()]);
+	}
+	
+	public boolean translateBooleanExpression(String expression) {
+		ScriptEngineManager sem = new ScriptEngineManager();
+		ScriptEngine engine = sem.getEngineByName("JavaScript");
+		return false;
+		// TODO FALTA TERMINAR DE IMPLEMENTAR
+	}
+	
+	public static void main(String[] args) {
+		
 	}
 	
 }
