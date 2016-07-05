@@ -1,6 +1,5 @@
 package me.dabpessoa.stringout.readers;
 
-import java.util.List;
 import java.util.Map;
 
 import me.dabpessoa.stringout.StringOut;
@@ -15,13 +14,7 @@ public class StringOutXML implements StringOut {
 	}
 
 	@Override
-	public String find(String key, Map<String, Object> replacements) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<String> findParams(String key) {
+	public String find(String key, Map<String, String> replacements) {
 		// TODO Auto-generated method stub
 		return null;
 	}

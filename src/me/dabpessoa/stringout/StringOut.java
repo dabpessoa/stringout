@@ -1,6 +1,5 @@
 package me.dabpessoa.stringout;
 
-import java.util.List;
 import java.util.Map;
 
 import me.dabpessoa.stringout.enums.StringOutType;
@@ -21,7 +20,7 @@ public interface StringOut {
 	 * @param key
 	 * @return String value of the file whithout replacements for parameters.
 	 */
-	String find(String key);
+	String find(String key) throws Throwable;
 	
 	/**
 	 * 
@@ -29,14 +28,7 @@ public interface StringOut {
 	 * @param replacements
 	 * @return String value with the replacements done.
 	 */
-	String find(String key, Map<String, Object> replacements);
-	
-	/**
-	 * 
-	 * @param key
-	 * @return List of params of the String selected by the key param.
-	 */
-	List<String> findParams(String key);
+	String find(String key, Map<String, String> replacements) throws Throwable;
 	
 	/**
 	 * 

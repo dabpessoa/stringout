@@ -5,7 +5,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
-import java.util.List;
 import java.util.Map;
 
 import com.google.gson.Gson;
@@ -13,33 +12,16 @@ import com.google.gson.GsonBuilder;
 
 import me.dabpessoa.stringout.StringOut;
 import me.dabpessoa.stringout.entity.JSONEntity;
-import me.dabpessoa.stringout.enums.ParamReplacementType;
 import me.dabpessoa.stringout.enums.StringOutType;
-import me.dabpessoa.stringout.util.RegexUtils;
+import me.dabpessoa.stringout.exeptions.VariableNotDefinedException;
+import me.dabpessoa.stringout.service.ExpressionTranslator;
 
 public class StringOutJSON implements StringOut {
-
-	@Override
-	public String find(String key, Map<String, Object> replacements) {
-		
-		String value = find(key);
-        List<String> valueParams = findParamsFromValue(value);
-        
-        for (String valueParam : valueParams) {
-        	valueParam = valueParam.substring(1);
-        	Object replacement = replacements.get(valueParam);
-        	if(replacement != null) {
-        		value = value.replaceAll(":"+valueParam, replacement.toString());
-        	}
-		}
-        
-        return value;
-	}
 	
 	@Override
-	public List<String> findParams(String key) {
-		String value = find(key);
-		return findParamsFromValue(value);
+	public String find(String key, Map<String, String> replacements) throws VariableNotDefinedException {
+		String stringValue = find(key);
+		return ExpressionTranslator.process(stringValue, replacements);
 	}
 	
 	@Override
@@ -52,10 +34,6 @@ public class StringOutJSON implements StringOut {
 	@Override
 	public StringOutType getType() {
 		return StringOutType.JSON;
-	}
-	
-	private static List<String> findParamsFromValue(String value) {
-		return RegexUtils.findMatches(ParamReplacementType.NAMED.getRegex(), value);
 	}
 	
 	private static JSONEntity findJSONEntityById(String id) {

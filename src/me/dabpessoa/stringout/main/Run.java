@@ -6,31 +6,54 @@ import java.util.Map;
 
 import me.dabpessoa.stringout.StringOutManager;
 import me.dabpessoa.stringout.enums.StringOutType;
+import me.dabpessoa.stringout.service.ExpressionTranslator;
 
 public class Run {
 
 	public static void main(String[] args) throws IOException {
 		
-		Map<String, Object> replacements = new HashMap<String, Object>();
-		replacements.put("replace", "gaiata");
+		Run run = new Run();
 		
-		String value = StringOutManager.getInstance(StringOutType.JSON).find("example", replacements);
+		String jsonTeste = run.fileJSONTeste();
+		String translatorTeste = run.translatorTeste();
 		
-		System.out.println(value);
-//		new Run().teste();
+		System.out.println(jsonTeste);
+		System.out.println();
+		System.out.println(translatorTeste);
 		
 	}
 	
-//	public void teste() {
-//		
-//		ExpressionTranslator et = new ExpressionTranslator();
-//		
-//		String string = "era uma vez  <| texto1 | value1 |>  final do teste <| texto1 | value2 |> djaklfjdlaje";
-//		
-//		String newString = et.processString(string);
-//		
-//		System.out.println(newString);
-//		
-//	}
+	public String fileJSONTeste() {
+		try {
+			
+			Map<String, String> replacements = new HashMap<String, String>();
+			replacements.put("replace", "gaiata");
+			
+			String value = StringOutManager.getInstance(StringOutType.JSON).find("example", replacements);
+			
+			return value;
+			
+		} catch (Throwable e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	public String translatorTeste() {
+		
+			
+		Map<String, String> replacements = new HashMap<String, String>();
+		replacements.put("texto1", "gaiata");
+		replacements.put("texto2", "sabida");
+			
+		String string = "era uma vez  <| :texto1 != null | inserindo uma :texto1 |>  final do teste <| :texto2 != null | novamente outra :texto2 |> no texto";
+		
+		String result = ExpressionTranslator.process(string, replacements);
+		
+		return result;
+			
+		
+		
+	}
 	
 }
