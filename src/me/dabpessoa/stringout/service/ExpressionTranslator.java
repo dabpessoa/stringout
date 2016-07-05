@@ -6,10 +6,10 @@ import java.util.Map;
 import java.util.Set;
 
 import javax.script.ScriptEngine;
-import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
 import me.dabpessoa.stringout.enums.ParamReplacementType;
+import me.dabpessoa.stringout.service.EvaluateExpression.ScriptTypes;
 import me.dabpessoa.stringout.util.RegexUtils;
 
 public class ExpressionTranslator {
@@ -73,8 +73,7 @@ public class ExpressionTranslator {
 		
 		expression = expression.replace((CharSequence)":", (CharSequence)"");
 		
-		ScriptEngineManager sem = new ScriptEngineManager();
-		ScriptEngine engine = sem.getEngineByName("JavaScript");
+		ScriptEngine engine = EvaluateExpression.getScriptEngine(ScriptTypes.JAVASCRIPT);
 		
 		Set<String> keys = replacements.keySet();
 		for (String key : keys) {
