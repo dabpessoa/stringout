@@ -13,8 +13,6 @@ public class Run {
 	public static void main(String[] args) throws IOException {
 		
 		Run run = new Run();
-<<<<<<< HEAD
-=======
 		
 		String jsonTeste = run.fileJSONTeste();
 		String translatorTeste = run.translatorTeste();
@@ -23,24 +21,6 @@ public class Run {
 		System.out.println();
 		System.out.println(translatorTeste);
 		
-	}
-	
-	public String fileJSONTeste() {
-		Map<String, String> replacements = new HashMap<String, String>();
-		replacements.put("replace", "gaiata");
->>>>>>> branch 'master' of https://github.com/dabpessoa/stringout.git
-		
-		String jsonTeste = run.fileJSONTeste();
-		String translatorTeste = run.translatorTeste();
-		
-<<<<<<< HEAD
-		System.out.println(jsonTeste);
-		System.out.println();
-		System.out.println(translatorTeste);
-		
-=======
-		return value;
->>>>>>> branch 'master' of https://github.com/dabpessoa/stringout.git
 	}
 	
 	public String fileJSONTeste() {
@@ -61,8 +41,6 @@ public class Run {
 	
 	public String translatorTeste() {
 		
-<<<<<<< HEAD
-			
 		Map<String, String> replacements = new HashMap<String, String>();
 		replacements.put("texto1", "gaiata");
 		replacements.put("texto2", "sabida");
@@ -72,19 +50,6 @@ public class Run {
 		String result = ExpressionTranslator.process(string, replacements);
 		
 		return result;
-			
-		
-=======
-		Map<String, String> replacements = new HashMap<String, String>();
-		replacements.put("texto1", "gaiata");
-		replacements.put("texto2", "sabida");
-		
-		String string = "era uma vez  <| :texto1 != null | inserindo uma :texto1 |>  final do teste <| :texto2 != null | novamente outra :texto2 |> no texto";
-		
-		String result = ExpressionTranslator.process(string, replacements);
-		
-		return result;
->>>>>>> branch 'master' of https://github.com/dabpessoa/stringout.git
 		
 	}
 	

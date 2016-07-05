@@ -28,11 +28,7 @@ public interface StringOut {
 	 * @param replacements
 	 * @return String value with the replacements done.
 	 */
-<<<<<<< HEAD
 	String find(String key, Map<String, String> replacements) throws Throwable;
-=======
-	String find(String key, Map<String, String> replacements);
->>>>>>> branch 'master' of https://github.com/dabpessoa/stringout.git
 	
 	/**
 	 * 
