@@ -13,13 +13,20 @@ import com.google.gson.GsonBuilder;
 import me.dabpessoa.stringout.StringOut;
 import me.dabpessoa.stringout.entity.JSONEntity;
 import me.dabpessoa.stringout.enums.StringOutType;
+<<<<<<< HEAD
 import me.dabpessoa.stringout.exeptions.VariableNotDefinedException;
+=======
+>>>>>>> branch 'master' of https://github.com/dabpessoa/stringout.git
 import me.dabpessoa.stringout.service.ExpressionTranslator;
 
 public class StringOutJSON implements StringOut {
 	
 	@Override
+<<<<<<< HEAD
 	public String find(String key, Map<String, String> replacements) throws VariableNotDefinedException {
+=======
+	public String find(String key, Map<String, String> replacements) {
+>>>>>>> branch 'master' of https://github.com/dabpessoa/stringout.git
 		String stringValue = find(key);
 		return ExpressionTranslator.process(stringValue, replacements);
 	}

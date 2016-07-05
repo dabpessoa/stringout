@@ -20,8 +20,12 @@ public enum ExpressionOperators {
 	AND("&&"),
 	NOT("!"),
 	PARENTESIS_LEFT("("),
+<<<<<<< HEAD
 	PARENTESIS_RIGHT(")"),
 	NULL("undefined");
+=======
+	PARENTESIS_RIGHT(")");
+>>>>>>> branch 'master' of https://github.com/dabpessoa/stringout.git
 	
 	private String symbol;
 	
