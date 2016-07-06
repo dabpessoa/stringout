@@ -2,10 +2,10 @@ package me.dabpessoa.stringout.readers;
 
 import java.util.Map;
 
-import me.dabpessoa.stringout.StringOut;
+import me.dabpessoa.stringout.AbstractStringOut;
 import me.dabpessoa.stringout.enums.StringOutType;
 
-public class StringOutProperty implements StringOut {
+public class StringOutProperty extends AbstractStringOut {
 
 	@Override
 	public String find(String key) {

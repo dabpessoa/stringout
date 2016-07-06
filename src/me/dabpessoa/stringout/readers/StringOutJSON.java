@@ -10,12 +10,12 @@ import java.util.Map;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import me.dabpessoa.stringout.StringOut;
+import me.dabpessoa.stringout.AbstractStringOut;
 import me.dabpessoa.stringout.entity.JSONEntity;
 import me.dabpessoa.stringout.enums.StringOutType;
 import me.dabpessoa.stringout.service.ExpressionTranslator;
 
-public class StringOutJSON implements StringOut {
+public class StringOutJSON extends AbstractStringOut {
 	
 	@Override
 	public String find(String key, Map<String, String> replacements) {
@@ -66,7 +66,7 @@ public class StringOutJSON implements StringOut {
 	}
 
 	private String toString(byte[] bytes) {
-		return new String(bytes, Charset.forName(CHARACTER_ENCODING_DEFAULT));
+		return new String(bytes, Charset.forName(getEncoding()));
 	}
 
 	private InputStream findInputStreamClassPathFile() throws IOException {

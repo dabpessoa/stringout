@@ -1,5 +1,20 @@
 [
-	{"id":"example", "value":"
-    	A ovelha :replace
+	{"id":"example1", "value":"
+    	A Olívia palito é :adjetivo. E o Brutos é :outroAdjetivo
+    "},
+    {"id":"example2", "value":"
+    	Se o céu é azul, é devido ao reflexo da luz do sol no oceano. Isso já dizia: :autor
+    "},
+    {"id":"example3", "value":"
+    	E hoje amanheceu :comoAmanheceu <| :comoAmanheceu != null | , devido à isso ficarei em casa |>. O dia terminou e anoiteceu. 
+    "},
+    {"id":"example4", "value":"
+    	select * from rh.funcionario f 
+    	  where 1=1
+    	     and f.matricula is not null
+    	     <| :nome != null |
+    	     	and f.nome ilike ':nome'
+    	     |>
+    	     and f.setor = 10;
     "}
 ]

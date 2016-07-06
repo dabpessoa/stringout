@@ -15,6 +15,7 @@ import me.dabpessoa.stringout.util.RegexUtils;
 public class ExpressionTranslator {
 
 	private static final String EXPRESSION_REGEX = "(?s)(<\\|)((.*?))(\\|)(.*?)(\\|>)";
+	private static final ScriptTypes DEFAULT_SCRIPT_ENGINE_TYPE = ScriptTypes.JAVASCRIPT;
 	
 	public static String process(String value, Map<String, String> replacements) {
 		String newValue = value;
@@ -73,7 +74,7 @@ public class ExpressionTranslator {
 		
 		expression = expression.replace((CharSequence)":", (CharSequence)"");
 		
-		ScriptEngine engine = EvaluateExpression.getScriptEngine(ScriptTypes.JAVASCRIPT);
+		ScriptEngine engine = EvaluateExpression.getScriptEngine(DEFAULT_SCRIPT_ENGINE_TYPE);
 		
 		Set<String> keys = replacements.keySet();
 		for (String key : keys) {

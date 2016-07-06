@@ -6,7 +6,6 @@ import java.util.Map;
 
 import me.dabpessoa.stringout.StringOutManager;
 import me.dabpessoa.stringout.enums.StringOutType;
-import me.dabpessoa.stringout.service.ExpressionTranslator;
 
 public class Run {
 
@@ -14,43 +13,82 @@ public class Run {
 		
 		Run run = new Run();
 		
-		String jsonTeste = run.fileJSONTeste();
-		String translatorTeste = run.translatorTeste();
+		// Testando exemplos JSON
+		String exemplo1 = run.example1();
+		String exemplo2 = run.example2();
+		String exemplo3 = run.example3();
+		String exemplo4 = run.example4();
 		
-		System.out.println(jsonTeste);
-		System.out.println();
-		System.out.println(translatorTeste);
+		System.out.println("Resultado exemplo 1: "+exemplo1);
+		System.out.println("Resultado exemplo 2: "+exemplo2);
+		System.out.println("Resultado exemplo 3: "+exemplo3);
+		System.out.println("Resultado exemplo 4: "+exemplo4);
 		
 	}
 	
-	public String fileJSONTeste() {
+	public String example1() {
 		try {
-			
+		
 			Map<String, String> replacements = new HashMap<String, String>();
-			replacements.put("replace", "gaiata");
+			replacements.put("adjetivo", "magra");
+			replacements.put("outroAdjetivo", "gordo");
 			
-			String value = StringOutManager.getInstance(StringOutType.JSON).find("example", replacements);
+			String string = StringOutManager.getInstance(StringOutType.JSON).find("example1", replacements);
 			
-			return value;
-			
+			return string;
+		
 		} catch (Throwable e) {
 			e.printStackTrace();
 			return null;
 		}
 	}
 	
-	public String translatorTeste() {
+	public String example2() {
+		try {
 		
-		Map<String, String> replacements = new HashMap<String, String>();
-		replacements.put("texto1", "gaiata");
-		replacements.put("texto2", "sabida");
+			Map<String, String> replacements = new HashMap<String, String>();
+			replacements.put("autor", "Didi Mocó Sonrrizal Colesterol Novalgina Mofumo");
 			
-		String string = "era uma vez  <| :texto1 != null | inserindo uma :texto1 |>  final do teste <| :texto2 != null | novamente outra :texto2 |> no texto";
+			String value = StringOutManager.getInstance(StringOutType.JSON).find("example2", replacements);
+			
+			return value;
 		
-		String result = ExpressionTranslator.process(string, replacements);
+		} catch (Throwable e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	public String example3() {
+		try {
 		
-		return result;
+			Map<String, String> replacements = new HashMap<String, String>();
+			replacements.put("comoAmanheceu", "chovendo");
+			
+			String value = StringOutManager.getInstance(StringOutType.JSON).find("example3", replacements);
+			
+			return value;
 		
+		} catch (Throwable e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	public String example4() {
+		try {
+		
+			Map<String, String> replacements = new HashMap<String, String>();
+			replacements.put("nome", "Diego Pessoa");
+			
+			String value = StringOutManager.getInstance(StringOutType.JSON).find("example4", replacements);
+			
+			return value;
+		
+		} catch (Throwable e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 	
 }
