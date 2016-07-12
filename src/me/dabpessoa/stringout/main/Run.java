@@ -33,7 +33,8 @@ public class Run {
 			replacements.put("adjetivo", "magra");
 			replacements.put("outroAdjetivo", "gordo");
 			
-			String string = StringOutManager.getInstance(StringOutType.JSON).find("example1", replacements);
+//			String string = StringOutManager.getInstance(StringOutType.JSON).find("example1", replacements);
+			String string = StringOutManager.getInstance(StringOutType.JSON, "stringout.json").find("example1", replacements);
 			
 			return string;
 		

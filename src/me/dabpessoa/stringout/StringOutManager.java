@@ -13,4 +13,10 @@ public class StringOutManager {
 		return instance;
 	}
 	
+	public static StringOut getInstance(StringOutType type, String filePath) {
+		StringOut so = getInstance(type);
+		so.setFilePath(filePath);
+		return so;
+	}
+	
 }

@@ -35,10 +35,9 @@ public class StringOutJSON extends AbstractStringOut {
 		return StringOutType.JSON;
 	}
 	
-	private static JSONEntity findJSONEntityById(String id) {
-		StringOutJSON sh = new StringOutJSON();
+	private JSONEntity findJSONEntityById(String id) {
 		try {
-			JSONEntity[] jsonEntities = sh.toJSONEntities();
+			JSONEntity[] jsonEntities = toJSONEntities();
 			if (jsonEntities != null) {
 				for (JSONEntity jsonEntity : jsonEntities) {
 					if (jsonEntity.getId() != null && jsonEntity.getId().trim().equals(id)) {
@@ -70,11 +69,12 @@ public class StringOutJSON extends AbstractStringOut {
 	}
 
 	private InputStream findInputStreamClassPathFile() throws IOException {
-		return this.getClass().getClassLoader().getResourceAsStream(FILE_NAME_DEFAULT);
+		return this.getClass().getClassLoader().getResourceAsStream(getFilePath());
 	}
 
 	private byte[] findBytesClassPathFile() throws IOException {
 		InputStream inputStream = findInputStreamClassPathFile();
+		if (inputStream == null) throw new RuntimeException("Não foi possível localizar o arquivo: "+getFilePath());
 		return getBytes(inputStream);
 	}
 
