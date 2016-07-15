@@ -19,4 +19,17 @@ public class StringOutManager {
 		return so;
 	}
 	
+	public static StringOut getInstanceWithEncoding(StringOutType type, String encoding) {
+		StringOut so = getInstance(type);
+		so.setEncoding(encoding);
+		return so;
+	}
+	
+	public static StringOut getInstance(StringOutType type, String filePath, String encoding) {
+		StringOut so = getInstance(type);
+		so.setFilePath(filePath);
+		so.setEncoding(encoding);
+		return so;
+	}
+	
 }

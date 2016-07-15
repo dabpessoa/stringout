@@ -42,4 +42,10 @@ public interface StringOut {
 	 */
 	void setFilePath(String path);
 	
+	/**
+	 * 
+	 * @param encoding
+	 */
+	void setEncoding(String encoding);
+	
 }

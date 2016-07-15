@@ -16,6 +16,7 @@ public abstract class AbstractStringOut implements StringOut {
 		this.filePath = FILE_PATH_DEFAULT;
 	}
 	
+	@Override
 	public void setEncoding(String encoding) {
 		this.encoding = encoding;
 	}

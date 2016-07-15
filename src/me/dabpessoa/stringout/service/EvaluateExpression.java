@@ -23,7 +23,8 @@ public class EvaluateExpression {
 	}
 	
 	public static enum ScriptTypes {
-		JAVASCRIPT("JavaScript");
+		JAVASCRIPT("JavaScript"),
+		NASHORN("nashorn");
 		
 		private String description;
 		
