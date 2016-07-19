@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import javax.script.ScriptEngine;
 import javax.script.ScriptException;
@@ -94,13 +93,14 @@ public class ExpressionTranslator {
 		
 		boolean result = false;
 		
+		List<String> variables = findParamsFromValue(expression);
 		expression = expression.replace((CharSequence)":", (CharSequence)"");
 		
 		ScriptEngine engine = EvaluateExpression.getScriptEngine(DEFAULT_SCRIPT_ENGINE_TYPE);
 		
-		Set<String> keys = replacements.keySet();
-		for (String key : keys) {
-			engine.put(key, replacements.get(key));
+		for (String variable : variables) {
+			variable = variable.substring(1);
+			engine.put(variable, replacements.get(variable));
 		}
 		
 		try {

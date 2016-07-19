@@ -3,6 +3,6 @@
     	A Olvia palito é :adjetivo. E o Brutos é <| :outroAdjetivo != null |> :outroAdjetivo <||><| :outroAdjetivo == null |> sem adjetivo <||>.
     "},
     {"id":"example2", "value":"
-    	Testando mais de uma expressão, lá vai: <| :param1 != null && param2: != null |> [:param1, :param2] <||>
+    	Testando mais de uma expressão, lá vai: <| :param1 != null || :param2 != null |> [:param1, :param2] <||>
     "}
 ]
