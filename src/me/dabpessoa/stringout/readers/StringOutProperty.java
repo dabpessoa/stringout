@@ -12,6 +12,8 @@ import me.dabpessoa.stringout.enums.StringOutType;
  */
 public class StringOutProperty extends AbstractStringOut {
 
+//	private Properties propertieOs;
+	
 	@Override
 	public String find(String key) {
 		// TODO Auto-generated method stub

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import me.dabpessoa.stringout.StringOut;
 import me.dabpessoa.stringout.StringOutManager;
 import me.dabpessoa.stringout.enums.StringOutType;
 
@@ -16,14 +17,15 @@ public class Run {
 	public static void main(String[] args) throws IOException {
 		
 		Run run = new Run();
+		StringOut stringout = StringOutManager.getInstance(StringOutType.JSON);
 		
 		// Testando exemplos JSON
-		String exemplo1 = run.example1();
-		String exemplo2 = run.example2();
-		String exemplo3 = run.example3();
-		String exemplo4 = run.example4();
-		String exemplo5 = run.example5();
-		String exemplo6 = run.example6();
+		String exemplo1 = run.example1(stringout);
+		String exemplo2 = run.example2(stringout);
+		String exemplo3 = run.example3(stringout);
+		String exemplo4 = run.example4(stringout);
+		String exemplo5 = run.example5(stringout);
+		String exemplo6 = run.example6(stringout);
 		
 		System.out.println("Resultado exemplo 1: "+exemplo1);
 		System.out.println("Resultado exemplo 2: "+exemplo2);
@@ -34,14 +36,14 @@ public class Run {
 		
 	}
 	
-	public String example1() {
+	public String example1(StringOut stringout) {
 		try {
 		
 			Map<String, String> replacements = new HashMap<String, String>();
 			replacements.put("adjetivo", "magra");
 			replacements.put("outroAdjetivo", "gordo");
 			
-			String string = StringOutManager.getInstance(StringOutType.JSON).find("example1", replacements);
+			String string = stringout.find("example1", replacements);
 			
 			return string;
 		
@@ -51,13 +53,13 @@ public class Run {
 		}
 	}
 	
-	public String example2() {
+	public String example2(StringOut stringout) {
 		try {
 		
 			Map<String, String> replacements = new HashMap<String, String>();
 			replacements.put("autor", "Didi Mocó Sonrrizal Colesterol Novalgina Mofumo");
 			
-			String value = StringOutManager.getInstance(StringOutType.JSON).find("example2", replacements);
+			String value = stringout.find("example2", replacements);
 			
 			return value;
 		
@@ -67,13 +69,13 @@ public class Run {
 		}
 	}
 	
-	public String example3() {
+	public String example3(StringOut stringout) {
 		try {
 		
 			Map<String, String> replacements = new HashMap<String, String>();
 			replacements.put("comoAmanheceu", "chovendo");
 			
-			String value = StringOutManager.getInstance(StringOutType.JSON).find("example3", replacements);
+			String value = stringout.find("example3", replacements);
 			
 			return value;
 		
@@ -83,13 +85,13 @@ public class Run {
 		}
 	}
 	
-	public String example4() {
+	public String example4(StringOut stringout) {
 		try {
 		
 			Map<String, String> replacements = new HashMap<String, String>();
 			replacements.put("nome", "Diego Pessoa");
 			
-			String value = StringOutManager.getInstance(StringOutType.JSON).find("example4", replacements);
+			String value = stringout.find("example4", replacements);
 			
 			return value;
 		
@@ -99,14 +101,17 @@ public class Run {
 		}
 	}
 	
-	public String example5() {
+	public String example5(StringOut stringout) {
 		try {
 		
 			Map<String, String> replacements = new HashMap<String, String>();
 			replacements.put("adjetivo", "alta");
 			replacements.put("outroAdjetivo", "doido");
 			
-			String string = StringOutManager.getInstance(StringOutType.JSON, "queries.json").find("example1", replacements);
+			stringout.setFilePath("queries.json");
+			stringout.load();
+			
+			String string = stringout.find("example1", replacements);
 			
 			return string;
 		
@@ -116,14 +121,18 @@ public class Run {
 		}
 	}
 	
-	public String example6() {
+	public String example6(StringOut stringout) {
 		try {
 		
 			Map<String, String> replacements = new HashMap<String, String>();
 			replacements.put("param1", "Goku");
 			replacements.put("param2", "Vegeta");
 			
-			String string = StringOutManager.getInstance(StringOutType.JSON, "queries.json", "UTF-8").find("example2", replacements);
+			stringout.setFilePath("queries.json");
+			stringout.setEncoding("UTF-8");
+			stringout.load();
+			
+			String string = stringout.find("example2", replacements);
 			
 			return string;
 		
