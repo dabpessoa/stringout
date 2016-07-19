@@ -6,6 +6,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
 
+/**
+ * @author dabpessoa [www.dabpessoa.me]
+ * @since 28/06/2016
+ */
 public abstract class AbstractStringOut implements StringOut {
 
 	private String encoding;

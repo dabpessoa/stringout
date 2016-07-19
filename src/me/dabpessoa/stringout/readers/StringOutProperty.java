@@ -5,6 +5,10 @@ import java.util.Map;
 import me.dabpessoa.stringout.AbstractStringOut;
 import me.dabpessoa.stringout.enums.StringOutType;
 
+/**
+ * @author dabpessoa [www.dabpessoa.me]
+ * @since 28/06/2016
+ */
 public class StringOutProperty extends AbstractStringOut {
 
 	@Override

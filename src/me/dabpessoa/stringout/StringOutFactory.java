@@ -6,6 +6,10 @@ import me.dabpessoa.stringout.readers.StringOutMemory;
 import me.dabpessoa.stringout.readers.StringOutProperty;
 import me.dabpessoa.stringout.readers.StringOutXML;
 
+/**
+ * @author dabpessoa [www.dabpessoa.me]
+ * @since 28/06/2016
+ */
 public class StringOutFactory {
 
 	private StringOutFactory() {}

@@ -4,6 +4,10 @@ import java.io.Serializable;
 
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * @author dabpessoa [www.dabpessoa.me]
+ * @since 28/06/2016
+ */
 public class JSONEntity implements Serializable {
 	private static final long serialVersionUID = -3644395619945804830L;
 	

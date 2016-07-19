@@ -2,6 +2,10 @@ package me.dabpessoa.stringout;
 
 import me.dabpessoa.stringout.enums.StringOutType;
 
+/**
+ * @author dabpessoa [www.dabpessoa.me]
+ * @since 28/06/2016
+ */
 public class StringOutManager {
 
 	private static StringOut instance;

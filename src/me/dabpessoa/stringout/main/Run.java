@@ -7,6 +7,10 @@ import java.util.Map;
 import me.dabpessoa.stringout.StringOutManager;
 import me.dabpessoa.stringout.enums.StringOutType;
 
+/**
+ * @author dabpessoa [www.dabpessoa.me]
+ * @since 28/06/2016
+ */
 public class Run {
 
 	public static void main(String[] args) throws IOException {

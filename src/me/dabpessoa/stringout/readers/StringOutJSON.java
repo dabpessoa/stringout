@@ -11,6 +11,10 @@ import me.dabpessoa.stringout.entity.JSONEntity;
 import me.dabpessoa.stringout.enums.StringOutType;
 import me.dabpessoa.stringout.service.ExpressionTranslator;
 
+/**
+ * @author dabpessoa [www.dabpessoa.me]
+ * @since 28/06/2016
+ */
 public class StringOutJSON extends AbstractStringOut {
 	
 	@Override

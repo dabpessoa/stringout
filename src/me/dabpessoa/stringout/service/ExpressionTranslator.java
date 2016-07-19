@@ -12,6 +12,10 @@ import me.dabpessoa.stringout.enums.ParamReplacementType;
 import me.dabpessoa.stringout.service.EvaluateExpression.ScriptTypes;
 import me.dabpessoa.stringout.util.RegexUtils;
 
+/**
+ * @author dabpessoa [www.dabpessoa.me]
+ * @since 28/06/2016
+ */
 public class ExpressionTranslator {
 
 	public static final String EXPRESSION_TRANSLATOR_REGEX = "(?s)(<\\|(.*?)?\\|>)(.*?)?(<\\|\\|>)";
@@ -90,6 +94,8 @@ public class ExpressionTranslator {
 	}
 	
 	private static boolean translateBooleanExpression(String expression, Map<String, String> replacements) {
+		
+		if (replacements == null) return false;
 		
 		boolean result = false;
 		
