@@ -1,5 +1,6 @@
 package me.dabpessoa.stringout.readers;
 
+import java.io.IOException;
 import java.util.Map;
 
 import me.dabpessoa.stringout.AbstractStringOut;
@@ -26,6 +27,11 @@ public class StringOutMemory extends AbstractStringOut {
 	@Override
 	public StringOutType getType() {
 		return StringOutType.MEMORY;
+	}
+
+	@Override
+	public void load() throws IOException {
+		// TODO Auto-generated method stub
 	}
 
 }

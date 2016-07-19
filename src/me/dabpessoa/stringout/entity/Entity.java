@@ -2,19 +2,15 @@ package me.dabpessoa.stringout.entity;
 
 import java.io.Serializable;
 
-/**
- * @author dabpessoa [www.dabpessoa.me]
- * @since 28/06/2016
- */
-public class PropertyEntity implements Serializable {
-	private static final long serialVersionUID = 1L;
+public class Entity implements Serializable {
+	private static final long serialVersionUID = -1641337198407291606L;
 	
 	private String key;
 	private String value;
 	
-	public PropertyEntity() {}
+	public Entity() {}
 
-	public PropertyEntity(String key, String value) {
+	public Entity(String key, String value) {
 		this.key = key;
 		this.value = value;
 	}

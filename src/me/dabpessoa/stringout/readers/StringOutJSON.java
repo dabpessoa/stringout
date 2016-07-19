@@ -17,6 +17,8 @@ import me.dabpessoa.stringout.service.ExpressionTranslator;
  */
 public class StringOutJSON extends AbstractStringOut {
 	
+	private JSONEntity[] jsonEntities;
+	
 	@Override
 	public String find(String key, Map<String, String> replacements) {
 		String value = find(key);
@@ -33,6 +35,13 @@ public class StringOutJSON extends AbstractStringOut {
 	@Override
 	public StringOutType getType() {
 		return StringOutType.JSON;
+	}
+	
+	@Override
+	public void load() throws IOException {
+		byte[] bytes = findBytesClassPathFile();
+		String fileString = toString(bytes);
+		jsonEntities = toJSONEntities(fileString);
 	}
 	
 	private JSONEntity findJSONEntityById(String id) {
@@ -52,9 +61,9 @@ public class StringOutJSON extends AbstractStringOut {
 	}
 	
 	private JSONEntity[] toJSONEntities() throws IOException {
-		byte[] bytes = findBytesClassPathFile();
-		String fileString = toString(bytes);
-		JSONEntity[] jsonEntities = toJSONEntities(fileString);
+		if (true) {load();}
+//		if (jsonEntities == null) {
+		// Alterar TODO FIXME
 		return jsonEntities;
 	}
 

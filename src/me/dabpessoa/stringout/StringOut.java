@@ -1,5 +1,6 @@
 package me.dabpessoa.stringout;
 
+import java.io.IOException;
 import java.util.Map;
 
 import me.dabpessoa.stringout.enums.StringOutType;
@@ -33,6 +34,8 @@ public interface StringOut {
 	 * @return The type/format of the String file.
 	 */
 	StringOutType getType();
+	
+	void load() throws IOException;
 	
 	/**
 	 * 
