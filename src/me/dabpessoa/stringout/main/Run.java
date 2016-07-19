@@ -117,7 +117,7 @@ public class Run {
 		
 			Map<String, String> replacements = new HashMap<String, String>();
 			replacements.put("param1", "Goku");
-			replacements.put("param2", "Vegita");
+			replacements.put("param2", "Vegeta");
 			
 			String string = StringOutManager.getInstance(StringOutType.JSON, "queries.json", "UTF-8").find("example2", replacements);
 			

@@ -1,6 +1,7 @@
 package me.dabpessoa.stringout.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -14,8 +15,29 @@ import me.dabpessoa.stringout.util.RegexUtils;
 
 public class ExpressionTranslator {
 
-	private static final String EXPRESSION_REGEX = "(?s)(<\\|)((.*?))(\\|)(.*?)(\\|>)";
+	public static final String EXPRESSION_TRANSLATOR_REGEX = "(?s)(<\\|(.*?)?\\|>)(.*?)?(<\\|\\|>)";
+	public static final int EXPRESSION_GROUP_NUMBER = 2;
+	public static final int VALUE_GROUP_NUMBER = 3;
 	private static final ScriptTypes DEFAULT_SCRIPT_ENGINE_TYPE = ScriptTypes.JAVASCRIPT;
+	
+	private ExpressionTranslator() {}
+	
+	public enum EXPRESSION_SEPARATORS {
+		LEFT("<\\|"), // <|
+		RIGHT("\\|>"), // |>
+		CLOSE("<\\|\\|>"); // <||>
+		
+		private String separatorObject;
+		
+		private EXPRESSION_SEPARATORS(String separatorObject) {
+			this.separatorObject = separatorObject;
+		}
+		
+		public String get() {
+			return separatorObject;
+		}
+		
+	};
 	
 	public static String process(String value, Map<String, String> replacements) {
 		String newValue = value;
@@ -29,8 +51,8 @@ public class ExpressionTranslator {
 	private static String[] proccessExpressions(List<String> matches, Map<String, String> replacements) {
 		List<String> results = new ArrayList<String>();
 		for (String match : matches) {
-			String expression = match.substring(match.indexOf("<|")+2, match.indexOf("|", 2));
-			String value = match.substring(match.indexOf("|", 2)+1, match.indexOf("|>"));
+			String expression = RegexUtils.findGroup(EXPRESSION_TRANSLATOR_REGEX, match, EXPRESSION_GROUP_NUMBER);
+			String value = RegexUtils.findGroup(EXPRESSION_TRANSLATOR_REGEX, match, VALUE_GROUP_NUMBER);
 			
 			if (expression != null) expression = expression.trim();
 			if (value != null) value = value.trim();
@@ -59,9 +81,9 @@ public class ExpressionTranslator {
 	}
 	
 	private static String doExpressionReplacements(String value, Map<String, String> replacements) {
-		List<String> expressions = RegexUtils.findMatches(EXPRESSION_REGEX, value);
+		List<String> expressions = RegexUtils.findMatches(EXPRESSION_TRANSLATOR_REGEX, value);
 		String[] expressionsResults = proccessExpressions(expressions, replacements);
-		return RegexUtils.replaceMatches(EXPRESSION_REGEX, value, expressionsResults);
+		return RegexUtils.replaceMatches(EXPRESSION_TRANSLATOR_REGEX, value, expressionsResults);
 	}
 	
 	private static List<String> findParamsFromValue(String value) {
@@ -95,6 +117,17 @@ public class ExpressionTranslator {
 		} 
 		
 		return result;
+		
+	}
+	
+	public static void main(String[] args) {
+		
+		String value = "Olá eu sou Goku! <|false|>   testeValor <||> dsflksdj ";
+		Map<String, String> replacements = new HashMap<String, String>();
+		
+		String result = ExpressionTranslator.process(value, replacements);
+		
+		System.out.println(result);
 		
 	}
 	

@@ -63,13 +63,34 @@ public class RegexUtils {
 		return value;
 	}
 	
+	public static String findGroup(String regex, String value, int groupNumber) {
+		Pattern pattern = Pattern.compile(regex);
+		Matcher matcher = pattern.matcher(value);
+		
+		if (matcher.find() && (groupNumber <= matcher.groupCount())) {
+			return matcher.group(groupNumber);
+		}
+		
+		return null;
+	}
+	
+	public static String[] split(String regex, String value) {
+		if (value == null) return null;
+		return value.split(regex);
+	}
+	
+	public static int getGroupCount(String regex, String value) {
+		Pattern pattern = Pattern.compile(regex);
+		Matcher matcher = pattern.matcher(value);
+		return matcher.groupCount();
+	}
+	
 	public static void main(String[] args) {
 		List<String> matchers = RegexUtils.findMatches("(#\\{)((?is).*?)(\\})", "This order #{was} placed for Q#{T3 }000! OK?");
 		
 		for (String value : matchers) {
 			System.out.println("Found: "+value);
 		}
-		
 	}
 	
 }
