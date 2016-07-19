@@ -61,9 +61,7 @@ public class StringOutJSON extends AbstractStringOut {
 	}
 	
 	private JSONEntity[] toJSONEntities() throws IOException {
-		if (true) {load();}
-//		if (jsonEntities == null) {
-		// Alterar TODO FIXME
+		if (jsonEntities == null) {load();}
 		return jsonEntities;
 	}
 
