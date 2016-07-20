@@ -1,10 +1,14 @@
 package me.dabpessoa.stringout.readers;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Map;
+import java.util.Properties;
 
 import me.dabpessoa.stringout.AbstractStringOut;
 import me.dabpessoa.stringout.enums.StringOutType;
+import me.dabpessoa.stringout.service.ExpressionTranslator;
 
 /**
  * @author dabpessoa [www.dabpessoa.me]
@@ -12,18 +16,21 @@ import me.dabpessoa.stringout.enums.StringOutType;
  */
 public class StringOutProperty extends AbstractStringOut {
 
-//	private Properties propertieOs;
+	private Properties properties;
 	
 	@Override
 	public String find(String key) {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			return getProperties().getProperty(key);
+		} catch (IOException e) {
+			e.printStackTrace();
+		} return null;
 	}
 
 	@Override
 	public String find(String key, Map<String, String> replacements) {
-		// TODO Auto-generated method stub
-		return null;
+		String value = find(key);
+		return ExpressionTranslator.process(value, replacements);
 	}
 
 	@Override
@@ -33,7 +40,15 @@ public class StringOutProperty extends AbstractStringOut {
 
 	@Override
 	public void load() throws IOException {
-		// TODO Auto-generated method stub
+		properties = new Properties();
+		InputStream inputStream = findInputStreamClassPathFile();
+		if (inputStream == null) throw new FileNotFoundException(getFilePath());
+		properties.load(inputStream);
+	}
+	
+	public Properties getProperties() throws IOException {
+		if (properties == null) load();
+		return properties;
 	}
 
 }

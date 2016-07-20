@@ -17,15 +17,17 @@ public class Run {
 	public static void main(String[] args) throws IOException {
 		
 		Run run = new Run();
-		StringOut stringout = StringOutManager.getInstance(StringOutType.JSON);
+		StringOut stringout1 = StringOutManager.getInstance(StringOutType.JSON);
+		StringOut stringout2 = StringOutManager.getInstance(StringOutType.PROPERTY);
 		
 		// Testando exemplos JSON
-		String exemplo1 = run.example1(stringout);
-		String exemplo2 = run.example2(stringout);
-		String exemplo3 = run.example3(stringout);
-		String exemplo4 = run.example4(stringout);
-		String exemplo5 = run.example5(stringout);
-		String exemplo6 = run.example6(stringout);
+		String exemplo1 = run.example1(stringout1);
+		String exemplo2 = run.example2(stringout1);
+		String exemplo3 = run.example3(stringout1);
+		String exemplo4 = run.example4(stringout1);
+		String exemplo5 = run.example5(stringout1);
+		String exemplo6 = run.example6(stringout1);
+		String exemplo7 = run.example7(stringout2);
 		
 		System.out.println("Resultado exemplo 1: "+exemplo1);
 		System.out.println("Resultado exemplo 2: "+exemplo2);
@@ -33,6 +35,7 @@ public class Run {
 		System.out.println("Resultado exemplo 4: "+exemplo4);
 		System.out.println("Resultado exemplo 5: "+exemplo5);
 		System.out.println("Resultado exemplo 6: "+exemplo6);
+		System.out.println("Resultado exemplo 7: "+exemplo7);
 		
 	}
 	
@@ -140,6 +143,22 @@ public class Run {
 			e.printStackTrace();
 			return null;
 		}
+	}
+	
+	public String example7(StringOut stringout) {
+		
+		try {
+			
+			Map<String, String> replacements = new HashMap<String, String>();
+			replacements.put("param", "do Brasil");
+			
+			String value = stringout.find("example", replacements);
+			return value;
+			
+		} catch (Throwable e) {
+			e.printStackTrace();
+		} return null;
+		
 	}
 	
 }

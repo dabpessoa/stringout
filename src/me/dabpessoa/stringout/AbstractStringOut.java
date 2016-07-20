@@ -17,7 +17,13 @@ public abstract class AbstractStringOut implements StringOut {
 	
 	public AbstractStringOut() {
 		this.encoding = CHARACTER_ENCODING_DEFAULT;
-		this.filePath = FILE_PATH_DEFAULT;
+		this.filePath = FILE_NAME_DEFAULT;
+		if (getType() != null) setFilePath(getFilePath()+getType().extension());
+	}
+	
+	public AbstractStringOut(String encoding, String filePath) {
+		this.encoding = encoding;
+		this.filePath = filePath;
 	}
 	
 	@Override

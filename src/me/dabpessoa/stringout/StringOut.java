@@ -11,7 +11,7 @@ import me.dabpessoa.stringout.enums.StringOutType;
  */
 public interface StringOut {
 
-	public static final String FILE_PATH_DEFAULT = "stringout.json";
+	public static final String FILE_NAME_DEFAULT = "stringout";
 	public static final String CHARACTER_ENCODING_DEFAULT = "UTF-8";
 
 	/**

@@ -6,9 +6,19 @@ package me.dabpessoa.stringout.enums;
  */
 public enum StringOutType {
 
-	JSON,
-	XML,
-	PROPERTY,
-	MEMORY;
+	JSON(".json"),
+	XML(".xml"),
+	PROPERTY(".properties"),
+	MEMORY(null);
+	
+	private String extension;
+	
+	private StringOutType(String extension) {
+		this.extension = extension;
+	}
+	
+	public String extension() {
+		return extension;
+	}
 	
 }
