@@ -28,7 +28,7 @@ public class StringOutJSON extends AbstractStringOut {
 	@Override
 	public String find(String key) {
 		JSONEntity jsonEntity = findJSONEntityById(key);
-		if (jsonEntity == null) throw new RuntimeException("Nenhuma string encontrado com o id: "+key);
+		if (jsonEntity == null) throw new RuntimeException("Nenhuma string encontrada com o id: "+key);
 		String value = jsonEntity.getValue();
 		return value;
 	}
