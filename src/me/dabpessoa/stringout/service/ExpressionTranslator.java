@@ -89,7 +89,8 @@ public class ExpressionTranslator {
 		
 		for (String variable : variables) {
 			variable = variable.substring(1);
-			engine.put(variable, replacements.get(variable));
+			String valueString = replacements.get(variable);
+			engine.put(variable, valueString);
 		}
 		
 		try {
