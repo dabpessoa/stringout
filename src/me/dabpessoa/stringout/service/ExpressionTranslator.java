@@ -25,23 +25,6 @@ public class ExpressionTranslator {
 	
 	private ExpressionTranslator() {}
 	
-	public enum EXPRESSION_SEPARATORS {
-		LEFT("<\\|"), // <|
-		RIGHT("\\|>"), // |>
-		CLOSE("<\\|\\|>"); // <||>
-		
-		private String separatorObject;
-		
-		private EXPRESSION_SEPARATORS(String separatorObject) {
-			this.separatorObject = separatorObject;
-		}
-		
-		public String get() {
-			return separatorObject;
-		}
-		
-	};
-	
 	public static String process(String value, Map<String, String> replacements) {
 		String newValue = value;
 
