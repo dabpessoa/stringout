@@ -16,6 +16,7 @@ public class EvaluateExpression {
 	static {
 		scriptEngineManagers = new HashMap<>();
 		scriptEngineManagers.put(ScriptTypes.JAVASCRIPT, new EvaluateExpression().new MyScriptEngine(ScriptTypes.JAVASCRIPT));
+		scriptEngineManagers.put(ScriptTypes.NASHORN, new EvaluateExpression().new MyScriptEngine(ScriptTypes.NASHORN));
 	}
 	
 	public static ScriptEngineManager getScriptEngineManager(ScriptTypes scriptType) {
