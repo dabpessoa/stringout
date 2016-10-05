@@ -12,8 +12,8 @@
     	select * from rh.funcionario f 
     	  where 1=1
     	     and f.matricula is not null
-    	     <| :nome != null |>
-    	     	and f.nome ilike ':nome'
+    	     <| :nome != null && (:nome == 'Diego' || new String(:nome).length > 10)  |>
+    	     	and f.nome ilike '%:nome%'
     	     <||>
     	     and f.setor = 10;
     "}

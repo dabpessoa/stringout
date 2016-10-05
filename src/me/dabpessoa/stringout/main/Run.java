@@ -92,7 +92,7 @@ public class Run {
 		try {
 		
 			Map<String, String> replacements = new HashMap<String, String>();
-			replacements.put("nome", "Diego Pessoa");
+			replacements.put("nome", "Diegoa");
 			
 			String value = stringout.find("example4", replacements);
 			
