@@ -28,6 +28,7 @@ public class Run {
 		String exemplo5 = run.example5(stringout1);
 		String exemplo6 = run.example6(stringout1);
 		String exemplo7 = run.example7(stringout2);
+		String exemplo8 = run.example8(stringout2);
 		
 		System.out.println("Resultado exemplo 1: "+exemplo1);
 		System.out.println("Resultado exemplo 2: "+exemplo2);
@@ -36,6 +37,7 @@ public class Run {
 		System.out.println("Resultado exemplo 5: "+exemplo5);
 		System.out.println("Resultado exemplo 6: "+exemplo6);
 		System.out.println("Resultado exemplo 7: "+exemplo7);
+		System.out.println("Resultado exemplo 8: "+exemplo8);
 		
 	}
 	
@@ -153,6 +155,22 @@ public class Run {
 			replacements.put("param", "do Brasil");
 			
 			String value = stringout.find("example", replacements);
+			return value;
+			
+		} catch (Throwable e) {
+			e.printStackTrace();
+		} return null;
+		
+	}
+	
+	public String example8(StringOut stringout) {
+		
+		try {
+			
+			Map<String, String> replacements = new HashMap<String, String>();
+			replacements.put("nome", "Diego Pessoa");
+			
+			String value = stringout.find("example1", replacements);
 			return value;
 			
 		} catch (Throwable e) {
