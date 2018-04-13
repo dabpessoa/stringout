@@ -1,10 +1,11 @@
 package me.dabpessoa.stringout.readers;
 
-import java.io.IOException;
-import java.util.Map;
-
 import me.dabpessoa.stringout.AbstractStringOut;
 import me.dabpessoa.stringout.enums.StringOutType;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author dabpessoa [www.dabpessoa.me]
@@ -21,6 +22,21 @@ public class StringOutXML extends AbstractStringOut {
 	@Override
 	public String find(String key, Map<String, String> replacements) {
 		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<String> getAllValues() throws Throwable {
+		return null;
+	}
+
+	@Override
+	public List<String> getAllKeys() throws Throwable {
+		return null;
+	}
+
+	@Override
+	public Map<String, String> getMapKeyValue() throws Throwable {
 		return null;
 	}
 

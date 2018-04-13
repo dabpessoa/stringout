@@ -1,14 +1,15 @@
 package me.dabpessoa.stringout.readers;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Map;
-import java.util.Properties;
-
 import me.dabpessoa.stringout.AbstractStringOut;
 import me.dabpessoa.stringout.enums.StringOutType;
 import me.dabpessoa.stringout.service.ExpressionTranslator;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
 
 /**
  * @author dabpessoa [www.dabpessoa.me]
@@ -31,6 +32,21 @@ public class StringOutProperty extends AbstractStringOut {
 	public String find(String key, Map<String, String> replacements) {
 		String value = find(key);
 		return ExpressionTranslator.process(value, replacements);
+	}
+
+	@Override
+	public List<String> getAllValues() throws Throwable {
+		return null;
+	}
+
+	@Override
+	public List<String> getAllKeys() throws Throwable {
+		return null;
+	}
+
+	@Override
+	public Map<String, String> getMapKeyValue() throws Throwable {
+		return null;
 	}
 
 	@Override

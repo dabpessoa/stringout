@@ -54,7 +54,7 @@ public abstract class AbstractStringOut implements StringOut {
 	
 	public byte[] findBytesClassPathFile() throws IOException {
 		InputStream inputStream = findInputStreamClassPathFile();
-		if (inputStream == null) throw new RuntimeException("Não foi possível localizar o arquivo: "+getFilePath());
+		if (inputStream == null) throw new RuntimeException("NÃ£o foi possÃ­vel localizar o arquivo: "+getFilePath());
 		return getBytes(inputStream);
 	}
 

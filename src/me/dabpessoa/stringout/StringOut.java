@@ -1,9 +1,10 @@
 package me.dabpessoa.stringout;
 
-import java.io.IOException;
-import java.util.Map;
-
 import me.dabpessoa.stringout.enums.StringOutType;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author dabpessoa [www.dabpessoa.me]
@@ -28,6 +29,22 @@ public interface StringOut {
 	 * @return String value with the replacements done.
 	 */
 	String find(String key, Map<String, String> replacements) throws Throwable;
+
+	/**
+	 * Método para retornar a lista de todos os itens.
+	 * @return
+	 * @throws Throwable
+	 */
+	List<String> getAllValues() throws Throwable;
+
+	/**
+	 *
+	 * @return
+	 * @throws Throwable
+	 */
+	List<String> getAllKeys() throws Throwable;
+
+	Map<String, String> getMapKeyValue() throws Throwable;
 	
 	/**
 	 * 
